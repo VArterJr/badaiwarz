@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 public class WorldMap
 {
@@ -19,12 +20,21 @@ public class WorldMap
         {
             nations.Add(new Nation
             {
-                Name = "Nation" + i,
+                Name = "Nation " + i,
+                ForeColor = GetRandomConsoleColor(),
+                BackColor = GetRandomConsoleColor(),
                 MilitaryStrength = random.Next(1, 101),
                 TerritorySize = random.Next(1, 101)
             });
         }
 
         return nations;
+    }
+
+    private static ConsoleColor GetRandomConsoleColor()
+    {
+        Random random = new Random();
+        var consoleColors = Enum.GetValues(typeof(ConsoleColor));
+        return (ConsoleColor)consoleColors.GetValue(random.Next(consoleColors.Length));
     }
 }

@@ -18,13 +18,33 @@ public class War
         {
             Attacker.TerritorySize += Defender.TerritorySize / 2;
             Defender.TerritorySize /= 2;
-            Console.WriteLine($"{Attacker.Name} has won the battle against {Defender.Name}!");
+
+            Console.Write($"Attacker ");
+            Console.ForegroundColor = Attacker.ForeColor;
+            Console.BackgroundColor = Attacker.BackColor;
+            Console.Write($"{Attacker.Name}");
+            Console.ResetColor();
+            Console.Write($" has won the battle against Defender ");
+            Console.ForegroundColor = Defender.ForeColor;
+            Console.BackgroundColor = Defender.BackColor;
+            Console.WriteLine($"{Defender.Name}!");
+            Console.ResetColor();
         }
         else
         {
             Defender.TerritorySize += Attacker.TerritorySize / 2;
             Attacker.TerritorySize /= 2;
-            Console.WriteLine($"{Defender.Name} has won the battle against {Attacker.Name}!");
+
+            Console.Write($"Defender ");
+            Console.ForegroundColor = Defender.ForeColor;
+            Console.BackgroundColor = Defender.BackColor;
+            Console.Write($"{Defender.Name}");
+            Console.ResetColor();
+            Console.Write($" has won the battle against Attacker ");
+            Console.ForegroundColor = Attacker.ForeColor;
+            Console.BackgroundColor = Attacker.BackColor;
+            Console.WriteLine($"{Attacker.Name}!");
+            Console.ResetColor();
         }
     }
 }
