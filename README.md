@@ -11,6 +11,7 @@ This app and its code is licensed under GNU GPL 3 and later. It is meant as a te
 You may use this app only for personal use. If you distribute, charge for it, or alter it, contact Vince Arter, Jr. (vince@vincearter.com).
 
 ## Version History
+* Version 0.0.4.1: Fixed issue with missing Territory Size in output of battles (even though it was being used for battle calculations).
 * Version 0.0.4: Many formatting changes and completed first stage of nation data display. Changed the way battle comparisons are done for Social Temperature (still figuring out what this should mean). Fixed a few inconsistencies. Fixed issue where nation foreground and background colors could match making them unreadable.
 * Version 0.0.3: Nations now have more determining data and that data is used, albeit simply, in battle comparisons. Update output to include more stats of this data (not all included yet). Started refactoring.
 * Version 0.0.2: First update with better UI and Nation data.

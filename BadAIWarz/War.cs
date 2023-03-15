@@ -112,11 +112,13 @@
     {
         Console.WriteLine($"Attacker: " +
             $"MS:{Attacker.MilitaryStrength} " +
+            $"TS:{Attacker.TerritorySize} " + 
             $"EW:{Attacker.EconomyWorth} " +
             $"ST:{Attacker.SocialTemperature}: " +
             $"PSA:{Attacker.PopulationSizeAdult}");
         Console.WriteLine($"Defender: " +
             $"MS:{Defender.MilitaryStrength} " +
+            $"TS:{Defender.TerritorySize} " +
             $"EW:{Defender.EconomyWorth} " +
             $"ST:{Defender.SocialTemperature}: " +
             $"PSA:{Defender.PopulationSizeAdult}");
