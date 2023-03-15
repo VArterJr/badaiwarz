@@ -23,7 +23,7 @@ public class WorldMap
             newBackColor = GetRandomConsoleColor();
             if (newForeColor == newBackColor && (int)newBackColor != 0) { newBackColor--; }
             else if(newForeColor == newBackColor && (int)newBackColor != 15) { newBackColor++; }
-            else { newBackColor = 0; }
+            else if(newForeColor == newBackColor) { newBackColor = ConsoleColor.Black; }
 
             nations.Add(new Nation
             {

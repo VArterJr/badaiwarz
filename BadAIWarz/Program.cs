@@ -8,7 +8,7 @@ class Program
         Random random = new Random();
 
         numNations = random.Next(1, 500);
-        //numNations = 4; // For testing
+        numNations = 4; // For testing
 
         WorldMap worldMap = new WorldMap(numNations);
 
