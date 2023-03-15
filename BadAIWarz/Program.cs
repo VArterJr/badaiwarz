@@ -8,6 +8,8 @@ class Program
         Random random = new Random();
 
         numNations = random.Next(1, 500);
+        //numNations = 3; // For testing
+
         WorldMap worldMap = new WorldMap(numNations);
 
         numWars = numNations / 2;
@@ -18,7 +20,8 @@ class Program
         System.Console.WriteLine("===================\n");
 
         System.Console.ForegroundColor = ConsoleColor.Red;
-        System.Console.WriteLine("Simulating " + numWars + " wars between " + numNations + " nations.\n");
+        System.Console.WriteLine("Simulating " + numWars + " wars between " + 
+            numNations + " nations...\n");
         Console.ResetColor();
 
         for (int i = 0; i < numWars; i++)

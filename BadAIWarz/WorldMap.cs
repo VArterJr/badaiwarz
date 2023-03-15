@@ -15,20 +15,27 @@ public class WorldMap
     {
         List<Nation> nations = new List<Nation>();
         Random random = new Random();
+        ConsoleColor newForeColor, newBackColor;
 
         for (int i = 0; i < numberOfNations; i++)
         {
+            newForeColor = GetRandomConsoleColor();
+            newBackColor = GetRandomConsoleColor();
+            if (newForeColor == newBackColor && (int)newBackColor != 0) { newBackColor--; }
+            else if(newForeColor == newBackColor && (int)newBackColor != 15) { newBackColor++; }
+            else { newBackColor = 0; }
+
             nations.Add(new Nation
             {
                 Name = "Nation " + i,
-                ForeColor = GetRandomConsoleColor(),
-                BackColor = GetRandomConsoleColor(),
-                MilitaryStrength = random.Next(1, 10001),
-                TerritorySize = random.Next(1, 1001),
-                EconomyWorth = random.NextDouble(),
-                SocialTemperature = random.Next(),
-                PopulationSizeAdult = random.Next()
-            }); ;
+                ForeColor = newForeColor,
+                BackColor = newBackColor,
+                MilitaryStrength = random.Next(1, 100001),
+                TerritorySize = random.Next(1, 100000001),
+                EconomyWorth = random.NextDouble() * 1000000.0,
+                SocialTemperature = random.NextDouble(),
+                PopulationSizeAdult = random.Next(2, 1000001)
+            });
         }
         return nations;
     }

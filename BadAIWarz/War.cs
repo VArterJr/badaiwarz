@@ -11,6 +11,7 @@
 
     public void Simulate()
     {
+        DisplayBattleHeader();
         DisplayPreBattleInfo();
 
         if (DoesAttackSucceed())
@@ -27,7 +28,7 @@
 
     private bool DoesAttackSucceed()
     {
-        // This is a horrible way to do this, but it's a social experiment and I wanted to start somewhere.
+        // This is a horrible way to do this, but it's just an experiment and I wanted to start somewhere.
 
         int attackerPoints = 0, defenderPoints = 0;
 
@@ -40,8 +41,8 @@
         if (Attacker.EconomyWorth > Defender.EconomyWorth) { attackerPoints++; }
         else { defenderPoints++; }
 
-        if (Attacker.SocialTemperature > Defender.SocialTemperature) { attackerPoints++; }
-        else { defenderPoints++; }
+        if (Attacker.SocialTemperature < 0.5 && attackerPoints > 0) { attackerPoints--; }
+        if (Defender.SocialTemperature < 0.5 && defenderPoints > 0) { defenderPoints--; }
 
         if (Attacker.PopulationSizeAdult > Defender.PopulationSizeAdult) { attackerPoints++; }
         else { defenderPoints++; }
@@ -82,24 +83,43 @@
         DisplayDefenderWin();
     }
 
-    private void DisplayPreBattleInfo()
+    private void DisplayBattleHeader()
     {
         Console.WriteLine("------------------------------------");
-        Console.Write("Pre-battle info between Attacker ");
-        DisplayNationName(Attacker);
-        Console.Write(" and Defender ");
-        DisplayNationName(Defender);
-        Console.WriteLine();
-        Console.WriteLine($"Attacker: MS:{Attacker.MilitaryStrength} EW: ST: PSA: ");
-        Console.WriteLine($"Defender MS:{Defender.MilitaryStrength} TS: EW: ST: PSA: ");
+        DisplayNationName(Attacker, 'u');
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(" ATTACKS ");
+        Console.ResetColor();
+        DisplayNationName(Defender, 'u');
+        Console.ResetColor();
+        Console.WriteLine("\n");
+    }
+
+    private void DisplayPreBattleInfo()
+    {
+        Console.WriteLine("PRE-BATTLE INFO");
+        DisplayNationsInfo();
     }
 
     private void DisplayPostBattleInfo()
     {
-        Console.WriteLine("--- Post-battle info between X and Y ---");
-        Console.WriteLine($"Attacker: MS:{Attacker.MilitaryStrength} EW: ST: PSA: ");
-        Console.WriteLine($"Defender MS:{Defender.MilitaryStrength} TS: EW: ST: PSA: ");
+        Console.WriteLine("POST-BATTLE INFO");
+        DisplayNationsInfo();
         Console.WriteLine("------------------------------------\n");
+    }
+
+    private void DisplayNationsInfo()
+    {
+        Console.WriteLine($"Attacker: " +
+            $"MS:{Attacker.MilitaryStrength} " +
+            $"EW:{Attacker.EconomyWorth} " +
+            $"ST:{Attacker.SocialTemperature}: " +
+            $"PSA:{Attacker.PopulationSizeAdult}");
+        Console.WriteLine($"Defender: " +
+            $"MS:{Defender.MilitaryStrength} " +
+            $"EW:{Defender.EconomyWorth} " +
+            $"ST:{Defender.SocialTemperature}: " +
+            $"PSA:{Defender.PopulationSizeAdult}");
     }
 
     private void DisplayNationName(Nation n)
@@ -110,23 +130,34 @@
         Console.ResetColor();
     }
 
+    private void DisplayNationName(Nation n, Char c)
+    {
+        Console.ForegroundColor = n.ForeColor;
+        Console.BackgroundColor = n.BackColor;
+
+        if(c == 'u') { Console.Write($"{n.Name}".ToUpper()); }
+        else { Console.Write($"{n.Name}"); }
+
+        Console.ResetColor();
+    }
+
     private void DisplayAttackerWin()
     {
-        Console.Write($"Attacker ");
+        Console.Write($"\nAttacker ");
         DisplayNationName(Attacker);
         Console.Write(" has won the battle against Defender ");
         DisplayNationName(Defender);
-        Console.WriteLine();
+        Console.WriteLine("\n");
         Console.ResetColor();
     }
 
     private void DisplayDefenderWin()
     {
-        Console.Write($"Defender ");
+        Console.Write($"\nDefender ");
         DisplayNationName(Defender);
         Console.Write(" has won the battle against Attacker ");
         DisplayNationName(Attacker);
-        Console.WriteLine();
+        Console.WriteLine("\n");
         Console.ResetColor();
     }
 }

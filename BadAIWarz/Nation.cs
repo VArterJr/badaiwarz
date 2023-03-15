@@ -10,6 +10,6 @@ public class Nation
     public int MilitaryStrength { get; set; }
     public int TerritorySize { get; set; }
     public double EconomyWorth { get; set; }
-    public int SocialTemperature { get; set; }
+    public double SocialTemperature { get; set; }
     public int PopulationSizeAdult { get; set; }
 }
