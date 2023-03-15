@@ -23,11 +23,13 @@ public class WorldMap
                 Name = "Nation " + i,
                 ForeColor = GetRandomConsoleColor(),
                 BackColor = GetRandomConsoleColor(),
-                MilitaryStrength = random.Next(1, 101),
-                TerritorySize = random.Next(1, 101)
-            });
+                MilitaryStrength = random.Next(1, 10001),
+                TerritorySize = random.Next(1, 1001),
+                EconomyWorth = random.NextDouble(),
+                SocialTemperature = random.Next(),
+                PopulationSizeAdult = random.Next()
+            }); ;
         }
-
         return nations;
     }
 

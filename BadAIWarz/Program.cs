@@ -4,23 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {
-        int numNations, numWars;
+        int numNations, numWars, currentWar = 0;
         Random random = new Random();
 
-        numNations = random.Next(100);
+        numNations = random.Next(1, 500);
         WorldMap worldMap = new WorldMap(numNations);
 
         numWars = numNations / 2;
 
-        System.Console.WriteLine("=== Bad AI Warz ===\n");
+        System.Console.ForegroundColor = ConsoleColor.Green;
+        System.Console.WriteLine("===================");
+        System.Console.WriteLine("=== Bad AI Warz ===");
+        System.Console.WriteLine("===================\n");
+
         System.Console.ForegroundColor = ConsoleColor.Red;
+        System.Console.WriteLine("Simulating " + numWars + " wars between " + numNations + " nations.\n");
         Console.ResetColor();
 
-        System.Console.WriteLine("Simulating " + numWars + " wars between " + numNations + " nations.\n");
         for (int i = 0; i < numWars; i++)
         {
             int attackerIndex = random.Next(worldMap.Nations.Count);
             int defenderIndex = random.Next(worldMap.Nations.Count);
+
+            currentWar++;
 
             while (attackerIndex == defenderIndex)
             {
@@ -31,6 +37,10 @@ class Program
             war.Simulate();
         }
 
-        System.Console.WriteLine("\n=== Thanks for playing, Vince Arter, Jr. ===");
+        System.Console.ForegroundColor = ConsoleColor.Green;
+        System.Console.WriteLine("\n=== Thanks for playing BadAIWarz, The Friends of BadAIWarz ===\n");
+        System.Console.ResetColor();
+        System.Console.Write("Press any key to exit BadAIWarz...");
+        System.Console.ReadKey();
     }
 }
