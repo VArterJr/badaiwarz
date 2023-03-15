@@ -2,11 +2,14 @@
 {
     public Nation Attacker { get; set; }
     public Nation Defender { get; set; }
+    public int WarNum, TotalWars;
 
-    public War(Nation attacker, Nation defender)
+    public War(Nation attacker, Nation defender, int warnum, int totalwars)
     {
         Attacker = attacker;
         Defender = defender;
+        WarNum = warnum;
+        TotalWars = totalwars;
     }
 
     public void Simulate()
@@ -86,6 +89,7 @@
     private void DisplayBattleHeader()
     {
         Console.WriteLine("------------------------------------");
+        Console.Write("Battle #" + WarNum + "/" + TotalWars + " ");
         DisplayNationName(Attacker, 'u');
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(" ATTACKS ");

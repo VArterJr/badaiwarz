@@ -7,8 +7,8 @@ class Program
         int numNations, numWars, currentWar = 0;
         Random random = new Random();
 
-        numNations = random.Next(1, 500);
-        numNations = 4; // For testing
+        numNations = random.Next(2, 500);
+        //numNations = 4; // For testing
 
         WorldMap worldMap = new WorldMap(numNations);
 
@@ -36,7 +36,7 @@ class Program
                 defenderIndex = random.Next(worldMap.Nations.Count);
             }
 
-            War war = new War(worldMap.Nations[attackerIndex], worldMap.Nations[defenderIndex]);
+            War war = new War(worldMap.Nations[attackerIndex], worldMap.Nations[defenderIndex], currentWar, numWars);
             war.Simulate();
         }
 
