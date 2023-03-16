@@ -1,0 +1,1 @@
+To install Bad AI Warz, just run the installer self extracting archive to a folder and run BadAIWarz.exe.

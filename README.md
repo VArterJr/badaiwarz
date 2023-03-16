@@ -10,7 +10,11 @@ This app and its code is licensed under GNU GPL 3 and later. It is meant as a te
 
 You may use this app only for personal use. If you distribute, charge for it, or alter it, contact Vince Arter, Jr. (vince@vincearter.com).
 
+## Installation
+To install Bad AI Warz, just run the installer self extracting archive to a folder and run BadAIWarz.exe.
+
 ## Version History
+* Version 0.0.6 (15-Mar-2023): Added prompts to get number of nations and number of wars (battles).
 * Version 0.0.5 (15-Mar-2023): Added battle numbers to output for each battle. Tweaked formats to be more readable.
 * Version 0.0.4.2 (15-Mar-2023): Tweaked the background color generation a bit because it was black almost all the time.
 * Version 0.0.4.1 (15-Mar-2023): Fixed issue with missing Territory Size in output of battles (even though it was being used for battle calculations).
